@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+        *
+        {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul
+        {
+            list-style: none;
+        }
+
+        img
+        {
+            border: none;
+        }
+
+        #box1
+        {
+            position: relative;
+            min-width: 800px;
+            _width: 900px;
+            font-family: "微软雅黑", Verdana, Geneva, sans-serif;
+        }
+
+            #box1 a
+            {
+                color: #7d7d7d;
+                font-size: 13px;
+                text-decoration: none;
+                outline: none;
+            }
+
+                #box1 a:hover
+                {
+                    text-decoration: underline;
+                }
+
+        #left
+        {
+            position: absolute;
+            left: 0;
+            right: 660px;
+            width: auto;
+        }
+
+            #left ul
+            {
+                border: #c8e2eb 1px solid;
+                margin-bottom: 10px;
+            }
+
+            #left h3
+            {
+                background: url(images/hou/titlebg_03.jpg);
+                line-height: 26px;
+                color: #005b91;
+                font-size: 14px;
+                text-indent: 10px;
+                border: #c8e2eb 1px solid;
+                *zoom: 1;
+            }
+
+            #left li
+            {
+                padding-left: 10px;
+                line-height: 24px;
+                background: url(images/hou/leftlibg_07.jpg) repeat-x;
+                color: #7d7d7d;
+            }
+
+                #left li span
+                {
+                    float: right;
+                    padding-right: 5%;
+                    font-size: 13px;
+                    color: #22a6f0;
+                }
+
+        #right
+        {
+            width: 640px;
+            margin-right: 0;
+            margin-left: auto;
+        }
+
+            #right ul.news
+            {
+                width: 640px;
+                margin: 10px 0;
+                display: none;
+            }
+
+                #right ul.news li
+                {
+                    display: inline-block;
+                    width: 310px;
+                    margin-right: 7px;
+                    vertical-align: top;
+                }
+
+                #right ul.news li
+                {
+                    *display: inline;
+                }
+
+        #emial
+        {
+            margin-right: 20px;
+        }
+
+        .dash
+        {
+            margin-top: 20px;
+        }
+    </style>
+    <script src="/res/inc/jquery.min.js" type="text/javascript" language="javascript"></script>
+    <link type="text/css" href="/res/admin/css/houtai.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(function () {
+            $(".building").click(function () {
+                alert("功能建设中");
+                return false;
+            });
+        });
+        function button_click(n) {
+            parent.my(n, true);
+        }
+    </script>
+</head>
+<body style="background: #fff;">
+    <form id="form1" action="" method="post" runat="server">
+        <div>
+            <div id="info_panels">
+                <div id="box1">
+                    <div id="left">
+                        <h3>统计信息</h3>
+                        <ul></ul>
+                        <ul>
+                            <li style="background-image: none;"><span id="span1"></span><font style="color: #005b91; font-size: 14px;">全部文章</font></li>
+                            <li><span style="color: #7d7d7d" class="span1_v"><%=getPerformcount(51)%></span><a style="visibility: hidden">占位</a><a href="/<%=Common.Para.siteHead + Common.Para.adminUrl %>Article/articleList.aspx?k=51">pc端商家登录页轮播图</a></li>
+
+                        </ul>
+                        <br />
+                    </div>
+                    <div id="right">
+                        <!-- <?//Banner ?><script type="text/javascript" src="http://www.topu.net/showCopyright/banner.js"></script> -->
+                        <?//Button ?>
+
+                        <ul class="news">
+                            <li><a href="#">测试测试测试测试测试测试测试测试</a></li>
+                            <li><a href="#">测试测试测试测试测试测试测试测试测试测试测</a></li>
+                            <li><a href="#">测试测试测试测试测试测试测试测试测试测试测</a></li>
+                            <li><a href="#">测试测试测试测试测试测试测试测试测试测试测</a></li>
+                            <li><a href="#">测试测试测试测试测试测试测试测试测试测试测</a></li>
+                            <li><a href="#">测试测试测试测试测试测试测试测试测试测试测</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
+        changeIframe();
+        var span1 = 0;
+        for (i = 0; i < $(".span1_v").length; i++) {
+            try {
+                span1 += parseInt($(".span1_v:eq(" + i + ")").text());
+            }
+            catch (e) { }
+        }
+        $("#span1").text(span1);
+    });
+</script>
+<script type="text/javascript" src="/res/inc/js.js"></script>

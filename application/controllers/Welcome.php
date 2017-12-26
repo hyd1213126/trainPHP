@@ -20,6 +20,8 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		// $this->load->view('index');
+		$host = $_SERVER["HTTP_HOST"];
+		redirect("http://$host" . $this->config_lib->admin_dir);
 	}
 }

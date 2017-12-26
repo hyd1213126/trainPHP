@@ -1,0 +1,234 @@
+<style type="text/css">
+    #countDivId {
+        border: 0px;
+    }
+
+    #layer_content1 {
+        padding-bottom: 10px;
+    }
+</style>
+<script type="text/javascript">
+    $(function() {
+        $(".building").click(function() {
+            alert("功能建设中");
+            return false;
+        });
+    });
+
+    function iframeBg(url) {
+        var bool = <?=$this->config_lib->small_window?>;
+        ShowLayer(url, null, null, bool);
+    }
+</script>
+<div id="sidebar">
+    <div id="accordion" class="ui-accordion ui-widget ui-helper-reset">
+        <?php $i=0; ?>
+        <div class="menu_div">
+            <h2><?=$this->config_lib->admin_area[$i]?></h2>
+            <ul>
+                <li>
+                    <a href="<?=$this->config_lib->admin_dir?>/Article/List?k=51" target="info">轮播大图</a>
+                    <ul>
+                        <li><a href="#" onclick="iframeBg('<?=$this->config_lib->admin_dir?>/Article/Add?k=51&random='+ new Date().getTime());return false;" target="info">添加轮播大图</a></li>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/Article/List?k=51" target="info">轮播大图列表</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="<?=$this->config_lib->admin_dir?>/Huyudong_article/List?k=51" target="info">胡浴东-轮播大图</a>
+                    <ul>
+                        <li><a href="#" onclick="iframeBg('<?=$this->config_lib->admin_dir?>/Huyudong_article/Add?k=51&random='+ new Date().getTime());return false;" target="info">胡浴东-添加轮播大图</a></li>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/Huyudong_article/List?k=51" target="info">胡浴东-轮播大图列表</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="<?=$this->config_lib->admin_dir?>/Article/List?k=52" target="info">服务领域</a>
+                    <ul>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/Article/List?k=52" target="info">服务领域列表</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="<?=$this->config_lib->admin_dir?>/Huyudong_article/List?k=52" target="info">胡浴东-服务领域</a>
+                    <ul>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/Huyudong_article/List?k=52" target="info">胡浴东-服务领域列表</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="<?=$this->config_lib->admin_dir?>/Article/List?k=53" target="info">项目展示</a>
+                    <ul>
+                        <li><a href="#" onclick="parent.iframeBg('<?=$this->config_lib->admin_dir?>/Article/Add?k=53&random='+ new Date().getTime());return false;" target="info">添加项目展示</a></li>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/Article/List?k=53" target="info">项目展示列表</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <?php $i++;?>
+        <div class="menu_div">
+            <h2><?=$this->config_lib->admin_area[$i]?></h2>
+            <ul>
+                <li><a href="<?=$this->config_lib->admin_dir?>/Advertise?id=1" target="info">顶部背景图</a></li>
+                <li><a href="<?=$this->config_lib->admin_dir?>/Advertise?id=2" target="info">标题图片</a></li>
+                <li><a href="#">公司介绍</a>
+                    <ul>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/other/info?iid=2" target="info">关于我们</a></li>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/Advertise?id=3" target="info">中间的Banner</a></li>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/Article/List?k=54" target="info">底部四个图标</a></li>
+                    </ul>
+                </li>
+                <li><a href="<?=$this->config_lib->admin_dir?>/Article/List?k=55" target="info">合伙人背景</a>
+                    <ul>
+                        <li><a href="#" onclick="parent.iframeBg('<?=$this->config_lib->admin_dir?>/Article/Add?k=55&random='+ new Date().getTime());return false;" target="info">添加合伙人</a></li>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/Article/List?k=55" target="info">合伙人列表</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">我们的优势</a>
+                    <ul>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/other/info?iid=3" target="info">我们的优势</a></li>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/Advertise?id=4" target="info">中间的Banner</a></li>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/Article/List?k=56" target="info">底部图片</a>
+                            <ul>
+                                <li><a href="#" onclick="parent.iframeBg('<?=$this->config_lib->admin_dir?>/Article/Add?k=56&random='+ new Date().getTime());return false;" target="info">添加底部图片</a></li>
+                                <li><a href="<?=$this->config_lib->admin_dir?>/Article/List?k=56" target="info">底部图片列表</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">联系我们</a>
+                    <ul>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/other/info?iid=4" target="info">公司地址</a></li>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/other/info_h?iid=4" target="info">公司地址A</a></li>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/other/info?iid=5" target="info">邮政编码</a></li>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/other/info?iid=6" target="info">联系方式-电话</a></li>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/other/info?iid=7" target="info">联系方式-邮箱</a></li>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/other/info?iid=8" target="info">商业计划书投送邮箱</a></li>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/Advertise?id=5" target="info">微信端关注</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <?php $i++;?>
+        <div class="menu_div">
+            <h2><?=$this->config_lib->admin_area[$i]?></h2>
+            <ul>
+                <li><a href="<?=$this->config_lib->admin_dir?>/Advertise?id=6" target="info">顶部背景图</a></li>
+                <li><a href="<?=$this->config_lib->admin_dir?>/Advertise?id=7" target="info">标题图片</a></li>
+                <li><a href="#">路演工场</a>
+                    <ul>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/other/info?iid=9" target="info">介绍</a></li>
+                        <li>
+                            <a href="<?=$this->config_lib->admin_dir?>/Article/List?k=57" target="info">路演会</a>
+                            <ul>
+                                <li><a href="#" onclick="parent.iframeBg('<?=$this->config_lib->admin_dir?>/Article/Add?k=57&random='+ new Date().getTime());return false;" target="info">添加路演会</a></li>
+                                <li><a href="<?=$this->config_lib->admin_dir?>/Article/List?k=57" target="info">路演会列表</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="<?=$this->config_lib->admin_dir?>/Subjects_h/List_h" target="info">已挂牌项目</a>
+                    <ul>
+                        <li><a href="#" onclick="parent.iframeBg('<?=$this->config_lib->admin_dir?>/Subjects/Add?random='+ new Date().getTime());return false;" target="info">添加已挂牌项目</a></li>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/Subjects/List" target="info">已挂牌项目列表</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="<?=$this->config_lib->admin_dir?>/Article/List?k=58" target="info">拟挂牌项目</a>
+                    <ul>
+                        <li><a href="#" onclick="parent.iframeBg('<?=$this->config_lib->admin_dir?>/Article/Add?k=58&random='+ new Date().getTime());return false;" target="info">添加拟挂牌项目</a></li>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/Article/List?k=58" target="info">拟挂牌项目列表</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <?php $i++;?>
+        <div class="menu_div">
+            <h2><?=$this->config_lib->admin_area[$i]?></h2>
+            <ul>
+                <li><a href="<?=$this->config_lib->admin_dir?>/Advertise?id=6" target="info">顶部背景图</a></li>
+                <li><a href="<?=$this->config_lib->admin_dir?>/Advertise?id=7" target="info">标题图片</a></li>
+                <li>
+                    <a href="<?=$this->config_lib->admin_dir?>/Article/List?k=59" target="info">最新资讯</a>
+                    <ul>
+                        <li><a href="#" onclick="parent.iframeBg('<?=$this->config_lib->admin_dir?>/Article/Add?k=59&random='+ new Date().getTime());return false;" target="info">添加最新资讯</a></li>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/Article/List?k=59" target="info">最新资讯列表</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="<?=$this->config_lib->admin_dir?>/Article/List?k=60" target="info">路演公告</a>
+                    <ul>
+                        <li><a href="#" onclick="parent.iframeBg('<?=$this->config_lib->admin_dir?>/Article/Add?k=60&random='+ new Date().getTime());return false;" target="info">添加路演公告</a></li>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/Article/List?k=60" target="info">路演公告列表</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <?php $i++;?>
+        <div class="menu_div">
+            <h2><?=$this->config_lib->admin_area[$i]?></h2>
+            <ul>
+                <li><a href="<?=$this->config_lib->admin_dir?>/other/info?iid=1" target="info">版权信息</a></li>
+                <li>
+                    <a href="<?=$this->config_lib->admin_dir?>/Base/List?k=1" target="info">行业</a>
+                    <ul>
+                        <li><a href="#" onclick="parent.iframeBg('<?=$this->config_lib->admin_dir?>/Base/Add_h?k=1&random='+ new Date().getTime());return false;" target="info">添加行业</a></li>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/Base/List?k=1" target="info">行业列表</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="<?=$this->config_lib->admin_dir?>/Base/List?k=2" target="info">地区</a>
+                    <ul>
+                        <li><a href="#" onclick="parent.iframeBg('<?=$this->config_lib->admin_dir?>/Base/Add?k=2&random='+ new Date().getTime());return false;" target="info">添加地区</a></li>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/Base/List?k=2" target="info">地区列表</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="<?=$this->config_lib->admin_dir?>/Base/List?k=3" target="info">标签</a>
+                    <ul>
+                        <li><a href="#" onclick="parent.iframeBg('<?=$this->config_lib->admin_dir?>/Base/Add?k=3&random='+ new Date().getTime());return false;" target="info">添加标签</a></li>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/Base/List?k=3" target="info">标签列表</a></li>
+                        <li><a href="<?=$this->config_lib->admin_dir?>/Base_huyudong/List?k=3" target="info">标签列表-胡浴东</a></li>
+                    </ul>
+                    </ul>
+                </li>
+                <li><a href="#">页面底部</a>
+                    <ul>
+                        <li>
+                            <a href="<?=$this->config_lib->admin_dir?>/Article/List?k=1" target="info">关于我们</a>
+                            <ul>
+                                <li><a href="#" onclick="parent.iframeBg('<?=$this->config_lib->admin_dir?>/Article/Add?k=1&random='+ new Date().getTime());return false;" target="info">添加关于我们</a></li>
+                                <li><a href="<?=$this->config_lib->admin_dir?>/Article/List?k=1" target="info">关于我们列表</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="<?=$this->config_lib->admin_dir?>/Article/List?k=2" target="info">最新动态</a>
+                            <ul>
+                                <li><a href="#" onclick="parent.iframeBg('<?=$this->config_lib->admin_dir?>/Article/Add?k=2&random='+ new Date().getTime());return false;" target="info">添加最新动态</a></li>
+                                <li><a href="<?=$this->config_lib->admin_dir?>/Article/List?k=2" target="info">最新动态列表</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="<?=$this->config_lib->admin_dir?>/Article/List?k=3" target="info">友情链接</a>
+                            <ul>
+                                <li><a href="#" onclick="parent.iframeBg('<?=$this->config_lib->admin_dir?>/Article/Add?k=3&random='+ new Date().getTime());return false;" target="info">添加友情链接</a></li>
+                                <li><a href="<?=$this->config_lib->admin_dir?>/Article/List?k=3" target="info">友情链接列表</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <?php $i++;?>
+        <div class="menu_div">
+            <h2><?=$this->config_lib->admin_area[$i]?></h2>
+            <ul>
+                <li><a href="<?=$this->config_lib->admin_dir?>/Other/init" target="info" class="a">系统设置</a></li>
+                <li><a href="<?=$this->config_lib->admin_dir?>/adminUsers/List" target="info" class="a">管理员列表</a></li>
+                <li><a class="a" href="<?=$this->config_lib->admin_dir?>/Other/space" target="info">删除垃圾文件</a></li>
+
+            </ul>
+        </div>
+
+    </div>
+    <!-- End of Accordion-->
+</div>

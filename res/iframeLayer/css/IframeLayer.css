@@ -1,0 +1,13 @@
+﻿/*遮罩层样式*/
+.Layer_BackGround{  BackGround:black;display:none; width:100%;height:100%;  position:fixed;top:0px;left:0px;z-index:999;}
+ .Layer_content{position:fixed; z-index:1999; display:none; padding:2px; background:white; overflow:hidden;text-align:center;}
+/*关闭按钮DIV样式*/
+.Layer_top {text-align:right; height:17px;display:none; line-height:17px;}
+.CloseLayerBack{ BackGround:white;  cursor:pointer; background:none; margin-top:0px;}
+.iframe_div{ overflow:hidden; text-align:center;}
+.Layer_pic{display:none;}
+.iframe_iframe{width:0;height:0;}
+/*提示框CSS样式*/
+
+/*针对提示框padding:0改为10*/
+.pad{padding:0;}

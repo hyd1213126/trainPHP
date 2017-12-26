@@ -1,6 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+date_default_timezone_set('PRC');
+
+$CI = &get_instance();
+$CI->load->library(array("Config_lib", "Functions_lib", "pagination", "form_validation"));
+$CI->load->helper(array("array", "cookie", "url", "form"));
+$CI->load->database();
 /*
 | -------------------------------------------------------------------
 | AUTO-LOADER

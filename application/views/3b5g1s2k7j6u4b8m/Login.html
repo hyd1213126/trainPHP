@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>
+        <?=$Init[0]->Iinfo?>
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="text/css" href="/res/admin/css/houtai.css" rel="stylesheet" />
+</head>
+
+<body id="loginbody">
+    <form onsubmit="return form_submit();">
+        <input type="hidden" name="direct" id="direct" value="hou" />
+        <div id="logincontainer">
+            <div class="logo">
+                <img src="/res/admin/images/hou/logo1.png" alt="" />
+            </div>
+            <div id="box">
+                <p class="main">
+                    <label>用户名：</label>
+                    <input type="text" class="yi" name="auser" id="auser" value="" />
+                    <label>密　码：</label>
+                    <input type="password" class="er" id="passwd" value="" />
+                    <label>验证码：</label>
+                    <input type="text" class="san" id="captcha_value" value="" style=" width:70px;" maxlength="4" /> &nbsp;&nbsp;
+                    <label class="captcha_image_div"></label>
+                </p>
+                <p class="space">
+                    <input type="submit" value="Login" class="login button" />
+                </p>
+            </div>
+        </div>
+    </form>
+    <script type="text/javascript" src="/res/inc/jquery.min.js"></script>
+    <script type="text/javascript">
+    var captcha_obj = $(".captcha_image_div");
+
+    function get_captcha_img() {
+        $.ajax({
+            url: "<?=$this->config_lib->admin_dir?>/Login/captcha?r=" + Math.random(),
+            type: "get",
+            success: function(data) {
+                captcha_obj.html(data);
+            }
+        });
+    }
+
+    $(function() {
+        $("#auser").focus();
+        get_captcha_img();
+
+        captcha_obj.click(function() {
+            get_captcha_img();
+        });
+
+    });
+
+    function form_submit() {
+
+        var auser = $("#auser").val();
+        var passwd = $("#passwd").val();
+        var captcha_value = $("#captcha_value").val();
+
+        $.ajax({
+            url: "<?=$this->config_lib->admin_dir?>/Login/valid?r=" + Math.random(),
+            type: "post",
+            data: {
+                auser: auser,
+                passwd: passwd,
+                captcha_value: captcha_value,
+                captcha_code: "<?=$this->functions_lib->Convert(@$_SESSION['adminUsers_captcha'],'string')?>"
+            },
+            success: function(result) {
+                if (result == "ok")
+                    location.href = "../";
+                else {
+                    alert(result);
+                }
+            },
+            complete: function() {
+                get_captcha_img();
+            }
+        })
+
+        return false;
+    }
+    </script>
+</body>
+
+</html>

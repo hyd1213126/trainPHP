@@ -1,0 +1,15 @@
+<link href="/res/IframeLayer/css/IframeLayer<?php if($this->config_lib->small_window):?>_small<?php endif?>.css" rel="stylesheet" />
+<script src="/res/IframeLayer/IframeLayer.js"></script>
+<script src="/res/inc/imageLoad.js"></script>
+<div class="Layer_BackGround" style="opacity:0.3;filter:alpha(opacity=30); -moz-opacity:0.3;">
+</div>
+<div class="Layer_content">
+    <div class="Layer_top">
+        <img class="CloseLayerBack"  src=""  />
+    </div>
+    <div class="iframe_div">
+        <iframe id="iframe_iframe" name="iframe_iframe" src="" class="iframe_iframe" frameborder="0"></iframe>
+        <img class="Layer_pic" />
+    </div>
+    <input type="hidden" name="small_window" id="small_window" value="<?=$this->config_lib->small_window?>" />
+</div>

@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://192.168.1.127:8083/application/views/index.html';
+$config['base_url'] = '192.168.1.127/';
 
 /*
 |--------------------------------------------------------------------------
@@ -64,7 +64,7 @@ $config['uri_protocol']	= 'REQUEST_URI';
 |
 | https://codeigniter.com/user_guide/general/urls.html
 */
-$config['url_suffix'] = 'https://192.168.1.127:8083/view/index.aspx';
+$config['url_suffix'] = '';
 
 /*
 |--------------------------------------------------------------------------

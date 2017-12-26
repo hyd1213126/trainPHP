@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head id="Head1" runat="server">
+    <title>后台管理系统 -
+        <?=$Init[0]->Iinfo?>
+    </title>
+    <!-- Libraries -->
+    <script src="/res/inc/jquery.min.js" type="text/javascript"></script>
+    <link type="text/css" href="/res/admin/css/houtai.css" rel="stylesheet" />
+    <style type="text/css">
+    #Layer_content {
+        padding-bottom: 2px;
+        margin: 0px;
+    }
+    
+    #layer_content1 {
+        padding-bottom: 2px;
+        margin: 0px;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- Container -->
+    <div id="container">
+        <!-- Header -->
+        {$top}
+        <!-- Background wrapper -->
+        <div id="bgwrap">
+            <!-- Main Content -->
+            <div id="content" style="overflow: auto;">
+                <div id="main">
+                    <!-- <h1>主框架</h1>-->
+                    <iframe name="info" id="info" frameborder="0" scrolling="auto" src="<?=$this->config_lib->admin_dir?>/Welcome/index2" width="100%" marginheight="0" marginwidth="0" style="display:none;"></iframe>
+                </div>
+            </div>
+            <!-- End of Main Content -->
+            <!-- Sidebar -->
+            {$menu}
+            <!-- End of Sidebar -->
+        </div>
+        <!-- End of bgwrap -->
+    </div>
+    <!-- End of Container -->
+    {$bottom}
+    {$iframeLayer}
+    
+    <script src="/res/inc/showlayer.js" type="text/javascript"></script>
+    <script src="/res/inc/js.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript">
+       
+        $(window).resize(function () { info_resize(); });
+        function info_resize() {
+            //init();
+            //document.getElementById("info").contentWindow.changeIframe();
+            var obj = document.getElementById("info");
+            var obj1 = "#sidebar";
+            var wh = $(window).height();
+            var header_h = $("#header").height();
+            var footer_h = $("#footer").height();
+            var h = parseInt(wh) - parseInt(header_h) - parseInt(footer_h);
+            if (h < 0)
+                h == 0;
+            $(obj).css("height", h + "px").show();
+            $(obj1).css("height",h + "px");
+        }
+        $(function () {
+            $("body").css("background", "url('/res/admin/images/hou/siderep.png') 185px 0 repeat-y");
+            info_resize();
+        });
+    </script>
+</body>
+
+</html>

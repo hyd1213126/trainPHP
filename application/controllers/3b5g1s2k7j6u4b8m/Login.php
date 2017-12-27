@@ -1,9 +1,10 @@
 <?php
+/*
+@ 高京
+@ 2016-06-03
+@ 登录控制器
+ */
 
-/* 
-    20171226
-    胡浴东
-*/
 class Login extends CI_Controller {
 
 	public function __construct() {

@@ -6,7 +6,7 @@
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+ * Copyright (c) 2014 - 2016, British Columbia Institute of Technology
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,7 @@
  * @package	CodeIgniter
  * @author	EllisLab Dev Team
  * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+ * @copyright	Copyright (c) 2014 - 2016, British Columbia Institute of Technology (http://bcit.ca/)
  * @license	http://opensource.org/licenses/MIT	MIT License
  * @link	https://codeigniter.com
  * @since	Version 1.0.0
@@ -38,16 +38,16 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['upload_userfile_not_set'] = 'Unable to find a post variable called userfile.';
-$lang['upload_file_exceeds_limit'] = 'The uploaded file exceeds the maximum allowed size in your PHP configuration file.';
+$lang['upload_file_exceeds_limit'] = '文件大小超过限制';
 $lang['upload_file_exceeds_form_limit'] = 'The uploaded file exceeds the maximum size allowed by the submission form.';
 $lang['upload_file_partial'] = 'The file was only partially uploaded.';
 $lang['upload_no_temp_directory'] = 'The temporary folder is missing.';
 $lang['upload_unable_to_write_file'] = 'The file could not be written to disk.';
 $lang['upload_stopped_by_extension'] = 'The file upload was stopped by extension.';
-$lang['upload_no_file_selected'] = 'You did not select a file to upload.';
-$lang['upload_invalid_filetype'] = 'The filetype you are attempting to upload is not allowed.';
-$lang['upload_invalid_filesize'] = 'The file you are attempting to upload is larger than the permitted size.';
-$lang['upload_invalid_dimensions'] = 'The image you are attempting to upload doesn\'t fit into the allowed dimensions.';
+$lang['upload_no_file_selected'] = '请选择文件';
+$lang['upload_invalid_filetype'] = '请选择正确文件';
+$lang['upload_invalid_filesize'] = '文件超过限制大小';
+$lang['upload_invalid_dimensions'] = '请选择正确尺寸图片';
 $lang['upload_destination_error'] = 'A problem was encountered while attempting to move the uploaded file to the final destination.';
 $lang['upload_no_filepath'] = 'The upload path does not appear to be valid.';
 $lang['upload_no_file_types'] = 'You have not specified any allowed file types.';

@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head id="Head1" runat="server">
+
+    <link href="/res/admin/css/houtai.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="/res/css/weui.min.css" rel="stylesheet" type="text/css" />
+    <script src="/res/inc/jquery.min.js" type="text/javascript"></script>
+    <script src="/res/inc/js.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" src="/ueditor/ueditor.all.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var editor = UE.getEditor('Iinfo');
+            textarea: 'Iinfo' //设置提交时编辑器内容的名字
+        })
+    </script>
+    <style type='text/css'>
+        .weui_mask,
+        .weui_dialog {
+            z-index: 100000;
+        }
+    </style>
+</head>
+
+<body class="bcolor1">
+    <script type="text/javascript">
+        $(function() {
+            $(".weui_btn_dialog.primary").click(function() {
+                $(".weui_dialog_alert").hide(0);
+            });
+        });
+    </script>
+    <div class="weui_dialog_alert" <?php if($act=="success" ){ ?>style="display:block;"
+        <?php }?> >
+        <div class="weui_mask"></div>
+        <div class="weui_dialog">
+            <div class="weui_dialog_hd"><strong class="weui_dialog_title">修改成功！</strong></div>
+            <div class="weui_dialog_bd"></div>
+            <div class="weui_dialog_ft">
+                <a href="#" class="weui_btn_dialog primary">确定</a>
+            </div>
+        </div>
+    </div>
+    <form id="form1" action="" method="post">
+        <input type="hidden" name="act" value="modify" />
+        <div id="info_panel">
+            <table id="info_panel_table" align="center" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td align="center">
+                        <table width="100%" border="0" cellpadding="0" cellspacing="1">
+                            <tr>
+                                <td height="31" align="center" class="title_font">
+                                    <?=$Info[0]->Ititle?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table width="100%" border="0" cellpadding="0" cellspacing="1" class="table_border">
+                                        <?=validation_errors('<tr><td align="left" colspan="2"><font color="#FF0000"><b>*', '</b></font></td></tr>') ?>
+                                            <tr>
+                                                <td width="22%" height="20" valign="top">
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                                                        <tr>
+                                                            <td width="6%">
+                                                                &nbsp;
+                                                            </td>
+                                                            <td width="94%" align="left">
+                                                                <?=$Info[0]->Ititle ?>：
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td width="78%">
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                                                        <tr>
+                                                            <td width="2%">
+                                                                &nbsp;
+                                                            </td>
+                                                            <td width="98%" align="left">
+                                                                <?php if($this->functions_lib->Convert($Info[0]->Type,"int") == 1){?>
+                                                                <input name="Iinfo" type="text" id="Iinfo" size="50" value="<?=$Info[0]->Iinfo ?>">
+                                                                <?php }elseif($this->functions_lib->Convert($Info[0]->Type,'int')==3){?>
+                                                                <textarea name="Iinfo" cols="50" rows="10" wrap="VIRTUAL" id="Iinfo" style="height: 150px"><?=$Info[0]->Iinfo ?></textarea>
+                                                                <?php if ($Info[0]->Iid == 0){?>
+                                                                <br />
+                                                                <font style="color:#ac2e2e;">注："&copy;"请用"
+                                                                    <?=Server.HtmlEncode("&copy;") ?>"代替</font>
+                                                                <?php }?>
+                                                                <?php }else{?>
+                                                                <textarea id="Iinfo" name="Iinfo" cols="100" rows="8" style="width: 100%; height: 450px;"><?=$Info[0]->Iinfo ?></textarea>
+
+                                                                <?php }?>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="stay_bottom_split">
+        </div>
+        <div id="stay_bottom" style="z-index:1000;">
+            <table width="100%" border="0" cellpadding="0" cellspacing="1">
+                <tr align="center">
+                    <td height="30" colspan="3">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tr align="center">
+                                <td height="30" colspan="2">
+                                    <input type="submit" class="button" value="提交" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+
+</html>

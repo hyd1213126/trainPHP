@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>functions 类库 方法列表</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta content="telephone=no,email=no" name="format-detection" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="/favicon.ico" rel="icon" type="image/x-icon" />
+    <!--[if lte ie 9]<script src="/inc/html5shiv.min.js"></script><![endif]-->
+    <style>
+    * {
+        box-sizing: border-box;
+        border-collapse: collapse;
+    }
+    
+    ul,
+    li {
+        list-style: none;
+    }
+    
+    ul {
+        display: table;
+        width: 100%;
+        margin: 0;
+        border-bottom: solid 1px #666;
+    }
+    
+    ul.title {
+        border-top: solid 1px #666;
+    }
+    
+    ul li {
+        display: table-cell;
+        width: 30%;
+        height: 4em;
+        line-height: 2em;
+        text-align: center;
+        border: solid 1px #666;
+        border-top: none;
+        border-bottom: none;
+        font-size: 9pt;
+        vertical-align: middle;
+    }
+    
+    ul li.short {
+        width: 10%;
+    }
+    
+    ul li.long {
+        width: 40%;
+    }
+    
+    ul li .strong {
+        font-weight: bold;
+        color: #cc0000;
+    }
+    
+    ul.title li {
+        font-weight: bold;
+        font-size: 12pt;
+    }
+    
+    section {
+        width: 1200px;
+        margin: 0 auto;
+    }
+    </style>
+</head>
+
+<body>
+    <section role="main">
+        <h2>现有方法</h2>
+        <ul class="title">
+            <li>方法说明</li>
+            <li>调用方法及参数</li>
+            <li>返回值</li>
+            <li class="short">创建人</li>
+        </ul>
+        <ul>
+            <li>将数组中指定项的数组拼接为逗号分隔或><分隔字符串，并验证每项均为数字类型（数据添加用）</li>
+            <li><a href="/index.html" target="_blank">joinArrayAndFilter($arr, $params, $kind, $need_filter)</a>
+            <br />$arr: 数组
+            <br />$params: 需要拼接的key
+            <br />$kind: 1-逗号分隔（默认） 2-><分隔
+            <br />$need_filter: true-需要进行数字型判断（默认） false-不需要</li>
+            <li>array</li>
+            <li class="short">高京</li>
+        </ul>
+        <ul>
+            <li>判断字符串长度是否在预期长度内（表单验证用）</li>
+            <li><a href="/index.html" target="_blank">check_length($str, $params);</a>
+                <br />$str：字符串（一个汉字=两个字节）
+                <br />$params=array(
+                <br />$bytes_count：预期字节长度。默认：0
+                <br />)</li>
+            <li>TRUE/FALSE</li>
+            <li class="short">高京</li>
+        </ul>
+        <ul>
+            <li>根据文件路径或文件名，获得文件扩展名</li>
+            <li><a href="/index.html" target="_blank">GetExtension($FilePath);</a>
+                <br />$FilePath：文件路径或文件名</li>
+            <li>扩展名字符串</li>
+            <li class="short">高京</li>
+        </ul>
+        <ul>
+            <li>对字符串进行数字型判断（支持逗号分隔的多值字符串）</li>
+            <li><a href="/index.html" target="_blank">filterNoNum($str);</a>
+                <br />$str：逗号分隔的主键字符串</li>
+            <li>过滤后的字符串（非数字值被过滤）</li>
+            <li class="short">高京</li>
+        </ul>
+        <ul>
+            <li>自动获得地址栏参数集，过滤并拼接为地址栏字符串</li>
+            <li><a href="/index.html" target="_blank">transParameters($Filter_Para);</a>
+                <br />$Filter_Para：过滤掉的参数名（键），多个用|分隔，区分大小写。默认""</li>
+            <li>过滤并拼接后的字符串：a=1&b=2&c=3</li>
+            <li class="short">高京</li>
+        </ul>
+        <ul>
+            <li>遮盖姓名</li>
+            <li><a href="/index.html" target="_blank">NameMask($str, $mask);</a>
+                <br />$str：原字符串
+                <br />$mask：遮盖字符。默认"*"</li>
+            <li>遮盖后字符串：高*、马*君、G*****g</li>
+            <li class="short">高京</li>
+        </ul>
+        <ul>
+            <li>遮盖手机号</li>
+            <li><a href="/index.html" target="_blank">MobileMask($str, $length, $mask);</a>
+                <br />$str：手机字符串，不支持汉字
+                <br />$length：遮盖长度。默认：4
+                <br />$mask：遮盖字符。默认"*"</li>
+            <li>遮盖后字符串：155****5957</li>
+            <li class="short">高京</li>
+        </ul>
+        <ul>
+            <li>根据日期和随机数生成文件名，并确保文件不存在。</li>
+            <li><a href="/index.html" target="_blank">createFileName($dir, $ext, $rnd_length, $separator);</a>
+                <br />$dir：存放文件的目录（用于验证新生成文件名是否已存在）。如：/application/images/
+                <br />$ext：文件后缀。默认：".jpg"
+                <br />$rnd_length：随机数长度。默认：6
+                <br />$separator：日期和随机数之间的分隔符。默认：""</li>
+            <li>返回文件名（无目录）：20160602_345123.jpg</li>
+            <li class="short">高京</li>
+        </ul>
+        <ul>
+            <li>类型转换</li>
+            <li><a href="/index.html" target="_blank">Convert($para, $type);</a>
+                <br />$para：源数据
+                <br />$type：目标类型。"int | string | bool | float | double"。默认："int"
+            <li>转换后值</li>
+            <li class="short">高京</li>
+        </ul>
+        <ul>
+            <li>对MD5加密的字符串进行二次加密</li>
+            <li><a href="/index.html" target="_blank">encrypt_md5($md5_str, $key_str);</a>
+                <br />$md5_str：MD5字符串（32位或16位）
+                <br />$key_str：16位密钥
+            <li>二次加密后的字符串</li>
+            <li class="short">高京</li>
+        </ul>
+        <ul>
+            <li>提交异步请求（待做）</li>
+            <li><a href="/index.html" target="_blank"></a></li>
+            <li></li>
+            <li class="short"></li>
+        </ul>
+        <ul>
+            <li>db->limit组建</li>
+            <li><a href="/index.html" target="_blank">Organize_limit($pages)</a>
+            <br />$pages：分页参数数组</li>
+            <li>-</li>
+            <li class="short">高京</li>
+        </ul>
+        <ul>
+            <li>组织分页参数-管理平台。</li>
+            <li><a href="/index.html" target="_blank">admin_oranize_page_str($opt)</a>
+            <br />$opt：空array或已有部分参数的分页参数集对象</li>
+            <li>组织过的array()</li>
+            <li class="short">高京</li>
+        </ul>
+        <br />
+        <h2>废弃方法</h2>
+        <ul class="title">
+            <li>方法说明</li>
+            <li>方法名</li>
+            <li class="long">废弃原因</li>
+        </ul>
+        <ul>
+            <li>生成随机码/生成验证码</li>
+            <li>CreateRandomStr/MakeValid</li>
+            <li class="long">可使用CI框架的 <a class="strong" href="http://codeigniter.org.cn/user_guide/helpers/string_helper.html" target="_blank">random_string()</a> 方法</li>
+        </ul>
+        <ul>
+            <li>生成时间戳（世界标准时间）</li>
+            <li>CreateTimeStamp/create_timestamp</li>
+            <li class="long">可使用CI框架的 <a class="strong" href="http://codeigniter.org.cn/user_guide/helpers/date_helper.html" target="_blank">human_to_unix()</a> 方法</li>
+        </ul>
+        <ul>
+            <li>字符串加密</li>
+            <li>CreateHash/md5/sha1</li>
+            <li class="long">可使用PHP原生的 <a class="strong" href="http://php.net/manual/zh/function.hash.php" target="_blank">hash()</a> 方法</li>
+        </ul>
+        <ul>
+            <li>文件读取/修改文件/删除文件</li>
+            <li>ReadFile/ReadFileSync/getCode/WriteCode/del_file</li>
+            <li class="long">可使用CI框架的 <a class="strong" href="http://codeigniter.org.cn/user_guide/helpers/file_helper.html" target="_blank">文件辅助函数</a></li>
+        </ul>
+        <ul>
+            <li>省略字符串</li>
+            <li>ShengLue</li>
+            <li class="long">可使用mbstring扩展的 <a class="strong" href="http://php.net/manual/zh/function.mb-strimwidth.php" target="_blank">mb_strimwidth()</a> 方法</li>
+        </ul>
+        <ul>
+            <li>获得字符串长度。返回长度数值</li>
+            <li>StrLength</li>
+            <li class="long">可使用mbstring扩展的 <a class="strong" href="http://php.net/manual/zh/function.mb-strwidth.php" target="_blank">mb_strwidth()</a> 方法</li>
+        </ul>
+        <ul>
+            <li>判断逗号分隔的主码中是否含有某一主码</li>
+            <li>checkHave</li>
+            <li class="long">可将逗号分隔主码用逗号分隔拆分为数组，再用PHP的 <a class="strong" href="http://php.net/manual/zh/function.in-array.php" target="_blank">in_array()</a> 方法判断
+                <br />尖括号分隔的主码暂不考虑，如果用到可以用PHP的 <a class="strong" href="http://php.net/manual/zh/function.str-replace.php" target="_blank">str_replace()</a> 方法预处理</li>
+        </ul>
+        <ul>
+            <li>发送邮件</li>
+            <li>MailSend/JmailSend</li>
+            <li class="long">可使用PHP原生的 <a class="strong" href="http://php.net/manual/zh/function.mail.php" target="_blank">mail()</a> 方法</li>
+        </ul>
+        <ul>
+            <li>图片缩放</li>
+            <li>MakeThumb</li>
+            <li class="long">可使用CI框架的 <a class="strong" href="http://codeigniter.org.cn/user_guide/libraries/image_lib.html" target="_blank">图像处理类</a></li>
+        </ul>
+        <ul>
+            <li>给图片添加水印</li>
+            <li>AddWatermark/addWaterMark</li>
+            <li class="long">可使用CI框架的 <a class="strong" href="http://codeigniter.org.cn/user_guide/libraries/image_lib.html" target="_blank">图像处理类</a></li>
+        </ul>
+        <ul>
+            <li>格式化Textarea输入的字符串</li>
+            <li>formatTextArea</li>
+            <li class="long">可使用PHP原生的 <a class="strong" href="http://php.net/manual/zh/function.nl2br.php" target="_blank">nl2br()</a> 方法（待测试）</li>
+        </ul>
+        <ul>
+            <li>文件下载</li>
+            <li>DownloadFile</li>
+            <li class="long">可使用CI框架的 <a class="strong" href="http://codeigniter.org.cn/user_guide/helpers/download_helper.html" target="_blank">force_download()</a> 方法</li>
+        </ul>
+        <ul>
+            <li>删除记录</li>
+            <li>recordDel</li>
+            <li class="long">可能要换种PHP的写法</li>
+        </ul>
+        <ul>
+            <li>正则验证Email的合法性</li>
+            <li>checkEmail</li>
+            <li class="long">可使用CI框架的 <a class="strong" href="http://codeigniter.org.cn/user_guide/helpers/email_helper.html" target="_blank">valid_email()</a> 方法</li>
+        </ul>
+        <ul>
+            <li>转换表单里的单引号、百分号和尖括号</li>
+            <li>convers</li>
+            <li class="long">可使用PHP原生的 <a class="strong" href="http://php.net/manual/zh/function.htmlspecialchars.php" target="_blank">htmlspecialchars()</a> 方法</li>
+        </ul>
+        <ul>
+            <li>用空格拆分字符串</li>
+            <li>split_space</li>
+            <li class="long">应该没什么用了</li>
+        </ul>
+        <ul>
+            <li>分页相关</li>
+            <li>Pagination/Pagination1/pageValid</li>
+            <li class="long">可使用CI框架的 <a class="strong" href="http://codeigniter.org.cn/user_guide/libraries/pagination.html" target="_blank">分页类</a></li>
+        </ul>
+    </section>
+</body>
+
+</html>

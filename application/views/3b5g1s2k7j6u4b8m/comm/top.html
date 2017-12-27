@@ -1,67 +1,67 @@
 <script type="text/javascript">
-    var mying = false;
-    $(function() {
-        my(0);
-    });
-    
-    function my(n, noRedirect) {
-        if (mying)
-            return;
-        mying = true;
-        $(".nav li a").removeClass("now");
-        $(".nav li:eq(" + n + ") a").addClass("now");
-        $(".menu_div").hide(0, function() {
-            $(".menu_div:eq(" + n + ")").show(0, function() {
-                mying = false;
-                if (!noRedirect)
-                    $("#info").attr("src", "<?=$this->config_lib->admin_dir?>/Welcome/index2");
-            });
+var mying = false;
+$(function() {
+    my(0);
+});
+
+function my(n, noRedirect) {
+    if (mying)
+        return;
+    mying = true;
+    $(".nav li a").removeClass("now");
+    $(".nav li:eq(" + n + ") a").addClass("now");
+    $(".menu_div").hide(0, function() {
+        $(".menu_div:eq(" + n + ")").show(0, function() {
+            mying = false;
+            if (!noRedirect)
+                $("#info").attr("src", "<?=$this->config_lib->admin_dir?>/Welcome/index2");
         });
-    }
-    </script>
-    <div id="header">
-        <!-- Top -->
-        <div id="top">
-            <!-- Logo -->
-            <div class="logo">
-                <a href="http://www.topu.net" target="_blank" title="Topu.net" class="tooltip"><img src="/res/admin/images/hou/logo2.png" alt="Topu.net" /></a>
-            </div>
-            <!-- End of Logo -->
-            <!-- Meta information -->
-            <div class="meta">
-                <p>
-                    欢迎您，
-                    <?=$adminUsers[0]->Auser?>&nbsp;&nbsp;
-                </p>
-                <ul>
-                    <li><a href="<?=$this->config_lib->admin_dir?>/Login/quit" class="tooltip"><span class="ui-icon ui-icon-power">
-                    </span>退出</a></li>
-                    <li><a href="/" class="tooltip" target="_blank"><span class="ui-icon ui-icon-person">
-                    </span>首页</a></li>
-                </ul>
-            </div>
-            <!-- End of Meta information -->
+    });
+}
+</script>
+<div id="header">
+    <!-- Top -->
+    <div id="top">
+        <!-- Logo -->
+        <div class="logo">
+            <a href="http://www.topu.net" target="_blank" title="Topu.net" class="tooltip"><img src="/res/admin/images/hou/logo2.png" alt="Topu.net" /></a>
         </div>
-        <!-- End of Top-->
-        <!-- The navigation bar -->
-        <div id="navbar">
-            <ul class="nav">
-                <?php 
-                    $i=0;
-                    $len=count($this->config_lib->admin_area);
-                    for(;$i<$len;$i++):
-                ?>
-                <li>
-                    <a href="#" onclick="my(<?=$i?>); return false;" class="" onFocus="this.blur()">
-                        <?=$this->config_lib->admin_area[$i]?>
-                    </a>
-                </li>
-                <?php endfor ?>
+        <!-- End of Logo -->
+        <!-- Meta information -->
+        <div class="meta">
+            <p>
+                欢迎您，
+                <?=$adminUsers[0]->Auser?>&nbsp;&nbsp;
+            </p>
+            <ul>
+                <li><a href="<?=$this->config_lib->admin_dir?>/Login/quit" class="tooltip"><span class="ui-icon ui-icon-power">
+                </span>退出</a></li>
+                <li><a href="/" class="tooltip" target="_blank"><span class="ui-icon ui-icon-person">
+                </span>首页</a></li>
             </ul>
         </div>
-        <!-- End of navigation bar" -->
-        <!-- Search bar -->
-        <div id="searc">
-        </div>
+        <!-- End of Meta information -->
     </div>
-    <!-- End of Header -->
+    <!-- End of Top-->
+    <!-- The navigation bar -->
+    <div id="navbar">
+        <ul class="nav">
+            <?php 
+                $i=0;
+                $len=count($this->config_lib->admin_area);
+                for(;$i<$len;$i++):
+            ?>
+            <li>
+                <a href="#" onclick="my(<?=$i?>); return false;" class="" onFocus="this.blur()">
+                    <?=$this->config_lib->admin_area[$i]?>
+                </a>
+            </li>
+            <?php endfor ?>
+        </ul>
+    </div>
+    <!-- End of navigation bar" -->
+    <!-- Search bar -->
+    <div id="searc">
+    </div>
+</div>
+<!-- End of Header -->

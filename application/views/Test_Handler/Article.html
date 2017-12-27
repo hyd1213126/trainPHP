@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="/res/inc/jquery.min.js"></script>
+    <title>Article(文章)接口调试工具</title>
+</head>
+<body>
+    <?php if($submiting==1){ ?>
+        <?=$jsonList?>
+    <?php }?>
+    <form id="form1" action="" method="post">
+        <input type="hidden" name="submiting" value="1" />
+        <div style="width: 100%; text-align: center; height: 40px;">
+            <select name="act_select"><?php echo $act ?>
+                <option value="select" <?php if ($act == "select") {  ?> selected<?php  }  ?>>select(查询) </option>
+                <option value="add" <?php if ($act == "add") {  ?> selected<?php  }  ?>>add(添加)</option>
+                <option value="modify" <?php if ($act == "modify") {  ?> selected<?php  }  ?>>modify(修改)</option>
+                <option value="del" <?php if ($act == "del"){  ?> selected<?php  }  ?>>del(删除)</option>
+                <option value="alive" <?php if ($act == "alive") {  ?> selected<?php  }  ?>>alive(修改屏蔽状态)</option>
+                <option value="layer" <?php if ($act == "layer") {  ?> selected<?php  }  ?>>layer(修改序号)</option>
+                <option value="layer" <?php if ($act == "New") {  ?> selected<?php  }  ?>>New(修改新)</option>
+                <option value="layer" <?php if ($act == "Status") {  ?> selected<?php  }  ?>>layer(修改状态)</option>
+                <option value="layer" <?php if ($act == "Recommend") {  ?> selected<?php  }  ?>>Recommend(修改首页成功推荐)</option>
+            </select>
+        </div>
+
+      <div>
+            <table width="850" align="center" border="0" cellspacing="0" cellpadding="0">
+                <?php for ($i = 0; $i < count($column); $i += 2){ ?>
+                <tr>
+                    <?php for ($j = 0; $j < 2; $j++){if ($i + $j >= count($column)) break; ?>
+                    <td height="30" align="right" width="250"><?=$column[$i+$j] ?>：</td>
+                    <td align="left" width="350"><input name="<?=$column[$i+$j] ?>" type="text" value="<?php if(isset($Params)){echo $Params[$column[$i+$j]];}?>" /></td>
+                    <?php } ?>
+                </tr>
+                <?php } ?>
+                <?php if($act=='select'){?>
+                <tr>
+                    <td height="30" align="right" width="250">ps：</td>
+                    <td align="left" width="350"><input name="ps" type="text" value="<?php if(isset($pageParams)){echo $pageParams['ps'];}?>" /></td>
+                    <td height="30" align="right" width="250">Page：</td>
+                    <td align="left" width="350"><input name="Page" type="text" value="<?php if(isset($pageParams)){echo $pageParams['Page'];}?>" /></td>
+                </tr>
+                <?php }?>
+                <tr>
+                    <td height="30" align="right" width="250">non_str：</td>
+                    <td align="left" width="350"><input name="non_str" type="text" value="<?=$non_str ?>" /></td>
+                    </tr>
+                <tr>
+                    <td height="30" align="right" width="250">stamp：</td>
+                    <td align="left" width="350"><input name="stamp" type="text" value="<?=$stamp ?>" /></td>
+                    </tr>
+                <tr>
+                    <td height="30" align="right" width="250">signature：</td>
+                    <td align="left" width="350"><input name="signature" type="text" value="" /></td>
+                    </tr>
+                <tr>
+                <tr>
+                    <td height="30" align="right" width="250">source：</td>
+                    <td align="left" width="350"><input name="source" type="text" value="<?=$source ?>" /></td>
+                    </tr>
+                <tr>
+                    <td colspan="4" align="center" height="40"><input type="submit" /></td>
+                </tr>
+            </table>
+        </div>
+    </form>
+    <script type="text/javascript">
+        $("select[name=act_select]").change(function () {
+            location.href = "/Handler/Test/Article_test/"+ $(this).val();
+        });
+    </script>
+</body>
+</html>

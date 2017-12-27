@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link href="/res/admin/css/houtai.css" rel="stylesheet" type="text/css" />
+    <link href="/res/css/weui.min.css" rel="stylesheet" type="text/css" />
+    <script src="/res/inc/jquery.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" src="/ueditor/ueditor.all.js"></script>
+
+</head>
+
+<body class="bcolor1">
+      <div class="weui_dialog_alert" <?php if($act=="success"){ ?>style="display:block;"<?php }?>>
+          <div class="weui_mask"></div>
+          <div class="weui_dialog">
+              <div class="weui_dialog_hd"><strong class="weui_dialog_title">修改成功</strong></div>
+              <div class="weui_dialog_bd"></div>
+              <div class="weui_dialog_ft">
+                  <a href="#" class="weui_btn_dialog primary">确定</a>
+              </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+      $(function() {
+          $(".weui_btn_dialog.primary").click(function() {
+              if (parent.info) { // menu直弹
+                  location.href = "info?<?=$this->functions_lib->transParameters('')?>";
+              } else { // list弹框
+                  parent.href = "info?<?=$this->functions_lib->transParameters('')?>";
+              }
+          });
+      });
+      </script>
+    <form id="form1" action="?<?=$this->functions_lib->transParameters()?>" method="post">
+    <input type="hidden" name="act" value="modify" />
+    <div id="info_panel">
+        <table id="info_panel_table" align="center" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td align="center">
+                  <?php for($i=0;$i<count($info);$i++):?>
+                    <table width="100%" border="0" cellpadding="0" cellspacing="1">
+                        <tr>
+                            <td height="30" align="center" class="title_font">
+                              <?= $info[$i]->Ititle ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table width="100%" border="0" cellpadding="0" cellspacing="1" class="table_border">
+
+                                             <tr>
+                                                 <td width="20%" height="20" valign="top">
+                                                     <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                                                         <tr>
+                                                             <td width="6%">
+                                                                 &nbsp;
+                                                             </td>
+                                                             <td width="94%" align="left"><?= $info[$i]->Ititle ?></td>
+                                                         </tr>
+                                                     </table>
+                                                 </td>
+                                                 <td width="80%">
+                                                     <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                                                         <tr>
+                                                             <td width="2%">
+                                                                 &nbsp;
+                                                             </td>
+                                                             <td width="98%" align="left">
+                                                             <?php if ($info[$i]->Type == 1)
+                                                              { ?>
+                                                            <input name="Iinfo" type="text" id="Iinfo" size="50" value="<?= $info[$i]->Iinfo ?>">
+                                                             <?php } else if ($info[$i]->Type == 3){ ?>
+                                                               <textarea name="Iinfo" cols="50" rows="10" wrap="VIRTUAL" id="Iinfo" style="height: 150px"><?= $info[$i]->Iinfo ?></textarea>
+                                                             <?php
+                                                             } else{ ?>
+                                                             <textarea id="Iinfo" name="Iinfo" cols="100" rows="8" style="width: 100%; height: 450px;"><？=$info[$i]->Iinfo ?></textarea>
+                                                           <script type="text/javascript">
+                                                               $(function () {
+                                                                 var editor = UE.getEditor('Iinfo');
+                                                               });
+                                                           </script>
+                                                       <?php }?>
+
+                                                             </td>
+                                                         </tr>
+                                                     </table>
+                                                 </td>
+                                             </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <?php endfor?>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="stay_bottom_split">
+    </div>
+    <div id="stay_bottom" style="z-index:1000;">
+        <table width="100%" border="0" cellpadding="0" cellspacing="1">
+            <tr align="center">
+                <td height="30" colspan="3">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tr align="center">
+                            <td height="30" colspan="2">
+                                <input type="submit" class="button" value="提交" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+  </body>
+  <script language="javascript" src="/res/inc/js.js" type="text/javascript"></script>
+</html>

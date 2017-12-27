@@ -1,15 +1,14 @@
 <?php
-/* 
-    20171226
-    胡浴东
-*/
+/*
+@ 高京
+@ 2016-06-03
+@ 主界面控制器
+ */
+
 class Welcome extends CI_Controller {
-
-
 	public $img_i = -1;
 	public function _remap($method, $params = array()) {
-
-        $this->img_i = $this->input->get('img_i', true);
+		$this->img_i = $this->input->get('img_i', true);
 		switch ($method) {
 			case "index":
 			default:

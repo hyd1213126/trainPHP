@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link href="/res/admin/css/houtai.css" rel="stylesheet" type="text/css" />
+    <script src="/res/inc/jquery.min.js" type="text/javascript" language="javascript"></script>
+    <link href="/res/css/weui.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="bcolor1">
+<?php if($act=="success"){ ?>
+    <div class="weui_dialog_alert">
+        <div class="weui_mask"></div>
+        <div class="weui_dialog">
+            <div class="weui_dialog_hd"><strong class="weui_dialog_title">操作成功<br>垃圾文件已清空</strong></div>
+            <div class="weui_dialog_bd"></div>
+            <div class="weui_dialog_ft">
+                <a href="#" class="weui_btn_dialog primary">确定</a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    $(function() {
+        $(".weui_btn_dialog.primary").click(function() {
+            if (parent.info) { // menu直弹
+                location.href = "space?<?=$this->functions_lib->transParameters('')?>";
+            }/* else { // list弹框
+                parent.href = "List?<?=$this->functions_lib->transParameters('')?>";
+            }*/
+        });
+    });
+    </script>
+<?php }else{?>
+<form id="form1" action="Clean" method="post">
+<input type="hidden" name="act" value="modify">
+<div id="info_panel">
+<table id="info_panel_table" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center">
+        <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="31" align="center" class="title_font">删除垃圾文件</td>
+          </tr>
+          <tr>
+            <td><table width="100%"  border="0" cellpadding="0" cellspacing="1" class="table_border">
+                <tr>
+                  <td height="150" colspan="2" align="center">在系统使用过程中，难免会出现垃圾文件占用着大量服务器资源的情况。<br>
+              <br>
+              删除这些垃圾文件可以最大限度的提高服务器速度，节省服务器空间。</td>
+                </tr>
+                <tr align="center">
+                  <td width="50%" height="30" id="t1"><?= $Iinfo ?></td>
+                  <td width="50%"><table border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td><a href="#" class="hou" onclick="alert(' 删除过程会根据文件数量而有所不同，请耐心等待 \n\n 确定后开始删除系统垃圾文件'); form1.submit(); return false;">点击此处开始删除垃圾文件</a></td>
+                    <td align="left"><img src="/res/admin/images/clean.gif" border="0" align="absmiddle" /></td>
+                  </tr>
+                  </table></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+    </td>
+  </tr>
+</table>
+</div>
+
+<br>
+</form>
+<?php } ?>
+</body>
+
+
+</html>
+
+<script language="javascript" src="/res/inc/js.js" type="text/javascript"></script>

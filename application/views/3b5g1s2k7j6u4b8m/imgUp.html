@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link href="/res/admin/css/houtai.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <?php if($filepath!=""){ ?>
+    <script src="/res/inc/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    parent.YesImgStyle("<?=$img_i?>", "<?=$filepath?>");
+    // parent.document.getElementById("imgFile<?=$img_i?>").src = "<?=$filepath?>";
+    // parent.document.getElementById("imageFile<?=$img_i?>").value = "<?=$filepath?>";
+    // $(parent.document.getElementById("imgFileClose<?=$img_i?>")).show(0);
+    // $(parent.document.getElementById("imgFileTd<?=$img_i?>")).css("border", "solid 1px #888");
+    // $(parent.document.getElementById("imgFile<?=$img_i?>")).removeAttr("onclick");
+    parent.closeIframeImgDiv();
+    </script>
+    <?php } else { ?>
+    <?php if($this->config_lib->pics_view){ ?>
+    <form action="imgUp_do?<?=$this->functions_lib->transParameters(" ")?>" enctype="multipart/form-data" method="post">
+        <div class="imgDiv_nopics_1">
+            <div class="imgDiv_nopics_2">
+                <table style="width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td style="color: #555555;padding-left:18px; line-height:25px;">
+                                图片
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td style="text-align: right; padding-right: 10px;">
+                                <img alt="" style="cursor: pointer;" onclick="javascript:parent.closeIframeImgDiv();return false;" src="/res/admin/images/hou/chacha.jpg">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="imgDiv_nopics_3">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td>
+                                图片上传：
+                            </td>
+                            <td>
+                                <input type="file" name="inputFile" size="20">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <table class="imgTable_nopics">
+                    <tbody>
+                        <tr>
+                            <td id="Button_nopics_1Td" style="width: 70%;">
+                                <input type="submit" value="上传">
+                            </td>
+                            <td style="width: 5%;">
+                                &nbsp;
+                            </td>
+                            <td style="text-align: left; width: 25%;">
+                                <input id="Button_nopics_3" type="button" value="取消" onclick="parent.closeIframeImgDiv(); return false;">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="imgDiv1">
+            <div class="zhanwei">
+                <div class="imgDiv_box div_fixld">
+                    <div class="imgDiv2">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td class="title_click title_now" k="0">图片上传</td>
+                                <td class="title_click title_table" k="1">图片库浏览</td>
+                                <td>&nbsp;</td>
+                                <td style="text-align: right; padding-right: 10px;">
+                                    <img alt="" style="cursor: pointer;" onclick="javascript:parent.closeIframeImgDiv();return false;" src="/res/admin/images/hou/chacha.jpg" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="img_load">
+                <div class="img_banner">
+                    <div class="imgDiv3">
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="file" name="inputFile" size="20" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="imgDiv4">
+                        <table class="imgTable">
+                            <tr>
+                                <td id="Button1Td" style="width: 70%;">
+                                    <input type="submit" value="upload" />
+                                </td>
+                                <td style="width: 5%;">&nbsp;
+                                </td>
+                                <td style="text-align: left; width: 25%;">
+                                    <input id="back" type="button" value="" class="imgButtn2" onclick="javascript: parent.closeIframeImgDiv(); return false;" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <?php } else { ?>
+    <form action="imgUp_do?<?=$this->functions_lib->transParameters(" ")?>" enctype="multipart/form-data" method="post">
+        <div class="imgDiv_nopics_1">
+            <div class="imgDiv_nopics_2">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="color: #555555;padding-left:18px; line-height:25px;">
+                            图片
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td style="text-align: right; padding-right: 10px;">
+                            <img alt="" style="cursor: pointer;" onclick="javascript:parent.closeIframeImgDiv();return false;" src="/res/admin/images/hou/chacha.jpg" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="imgDiv_error">
+                <?=$error?>
+            </div>
+            <div class="imgDiv_nopics_3">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>
+                            图片上传：
+                        </td>
+                        <td>
+                            <input type="file" name="inputFile" size="20" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table class="imgTable_nopics">
+                    <tr>
+                        <td id="Button_nopics_1Td" style="width: 70%;">
+                            <input type="submit" value="上传" />
+                        </td>
+                        <td style="width: 5%;">
+                            &nbsp;
+                        </td>
+                        <td style="text-align: left; width: 25%;">
+                            <input id="Button_nopics_3" type="button" value="取消" onclick="parent.closeIframeImgDiv(); return false;" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </form>
+    <?php } ?>
+    <script src="/res/inc/jquery.min.js" type="text/javascript"></script>
+    <script language="javascript" src="/res/inc/js.js" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript">
+    var img_url;
+    var hover_index = -1;
+
+    $(function() {
+        var obj = ".imgDiv2 table td.title_click";
+        $(obj).click(function() {
+            if ($(this).attr("class") == "title_now")
+                return;
+            $(obj).removeClass("title_now").addClass("title_table");
+            $(this).addClass("title_now").removeClass("title_table").removeClass("title_mouse_now");
+            tabInfo($(this).attr("k"));
+        }).hover(function() {
+            if ($(this).hasClass("title_now"))
+                return;
+            $(this).addClass("title_mouse_now");
+        }, function() {
+            if ($(this).hasClass("title_now"))
+                return;
+            $(this).removeClass("title_mouse_now");
+        });
+    });
+
+    function tabInfo(k) {
+        alert(k);
+        return;
+        if (k == "0")
+            window.location = "?kind=<%=Kind%>";
+        else {
+            $(".img_load").html("<div class=\"loading\"><img src=\"../images/loading_img.gif\" /></div>");
+            var h = $(window).height() - 50;
+            var m_top = (h - $(".loading img").height()) / 2;
+            $(".loading img").css("margin-top", m_top + "px");
+            $.get("img_load.aspx", {
+                r: Math.random()
+            }, function(data) {
+                $(".loading").fadeOut(500, function() {
+                    $(".img_load").html(data);
+                    $(".dingwie_img_box").hover(
+                        function() {
+                            $(this).addClass("now");
+                            $(this).stop(true, true).fadeTo(100, 1);
+                        },
+                        function() {
+                            $(this).removeClass("now");
+                            $(this).stop(true, true).fadeTo(100, 0.8);
+                        }).click(function() {
+                        img_url = $(this).find("img").attr("src");
+                        window.location = "?cmd=imgLoad&kind=<%=Kind%>&img_url=" + img_url;
+                    });
+                });
+            });
+        }
+    } //点击图片上传或图片库浏览完成的功能
+    </script>
+    <?php } ?>
+</body>
+
+</html>

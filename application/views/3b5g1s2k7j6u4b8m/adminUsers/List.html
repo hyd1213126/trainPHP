@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link href="/res/admin/css/houtai.css" rel="stylesheet" type="text/css" />
+    <script src="/res/inc/jquery.min.js" type="text/javascript"></script>
+    <script src="/res/inc/js.js" type="text/javascript"></script>
+    <link href="/res/css/weui.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="bcolor1">
+    <script type="text/javascript">
+    $(function() {
+        $(".weui_btn_dialog.primary").click(function() {
+            $(".weui_dialog_alert").hide(0);
+        });
+    });
+    </script>
+    <div class="weui_dialog_alert"  <?php if($act=="success"){ ?>style="display:block;"<?php }?> >
+        <div class="weui_mask"></div>
+        <div class="weui_dialog">
+            <div class="weui_dialog_hd"><strong class="weui_dialog_title">删除成功</strong></div>
+            <div class="weui_dialog_bd"></div>
+            <div class="weui_dialog_ft">
+                <a href="#" class="weui_btn_dialog primary">确定</a>
+            </div>
+        </div>
+    </div>
+    <div class="weui_dialog_confirm">
+        <div class="weui_mask"></div>
+        <div class="weui_dialog">
+            <div class="weui_dialog_hd"><strong class="weui_dialog_title">弹窗标题</strong></div>
+            <div class="weui_dialog_bd">自定义弹窗内容，居左对齐显示，告知需要确认的信息等</div>
+            <div class="weui_dialog_ft">
+                <a href="#" class="weui_btn_dialog default">取消</a>
+                <a href="#" class="weui_btn_dialog primary">确定</a>
+            </div>
+        </div>
+    </div>
+	<form id="form1" method="post">
+    <input type="hidden" name="act" value="del" />
+    <input type="hidden" id="searching" name="searching" value="<?=$searchParams['searching']?>" />
+    <div id="info_panel">
+        <table id="info_panel_table" align="center" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <table width="100%" border="0" align="center" cellpadding="1" cellspacing="0">
+                        <tr>
+                            <td>
+                                <table width="100%" border="0" cellpadding="0" cellspacing="1">
+                                    <tr>
+                                        <td colspan="2">
+                                            <table width="100%" border="0" cellpadding="0" cellspacing="0" style="cursor: pointer;"
+                                                id="close">
+                                                <tr>
+                                                    <td height="31" align="center" class="title_font">
+                                                        管理员列表
+                                                    </td>
+                                                    <td align="right" class="title_font" width="10%">
+                                                        <img id="closeimg" src="/res/admin/images/hou/trclose<?php if($searchParams['searching']==1){ ?>up<?php } else { ?>down<?php } ?>.png"
+                                                            style="cursor: pointer;" alt="" />&nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table width="100%" border="0" cellpadding="0" cellspacing="1" class="table_border" <?php if($searchParams['searching']==0 ) { ?>style="display: none;"
+                                                    <?php } ?>
+                                                id="closetable">
+                                                <tr>
+                                                    <td width="12%">所属级别：</td>
+                                                    <td width="88%">
+                                                        <select name="Aulid" style="width: 300px; font-size: 9pt;">
+                                                            <option value="0" selected>全部</option>
+                                                            <?php for ($j = 0; $j < count($adminUsersLevel); $j++)
+                                                               { ?>
+                                                            <option value="<?=$adminUsersLevel[$j]->Aulid ?>" <?php if($adminUsersLevel[$j]->Aulid==$searchParams['Aulid']){ ?> selected<?php } ?>>
+                                                                <?=$adminUsersLevel[$j]->Ltitle ?></option>
+                                                            <?php } ?>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td height="30" colspan="2" align="center">
+                                                        <table border="0" cellspacing="0" cellpadding="0">
+                                                            <tr>
+                                                                <td>
+                                                                    <input id="search" type="button" value="查询" class="button" onclick="form1.method='get'; document.getElementById('searching').value='1'; form1.submit();return false;"
+                                                                        style="cursor: pointer;" align="middle" />
+                                                                </td>
+                                                                <td>
+                                                                    &nbsp;&nbsp;
+                                                                </td>
+                                                                <td>
+                                                                    <input id="all" type="button" value="全部" class="button" onclick="window.location='?'" />
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table width="100%" border="0" cellpadding="0" cellspacing="1" class="table_border"
+                                                id="mytable">
+                                                <tr>
+                                                    <td width="5%" align="center" height="25px">
+                                                        <input name="checkall" type="checkbox" id="checkall" value="checkbox" />
+                                                    </td>
+                                                    <td width="20%" align="center">
+                                                        用户名
+                                                    </td>
+                                                    <td width="15%" align="center">
+                                                        所属级别 [<a href="<?= $this->config_lib->admin_dir?>/adminUsersLevel/List" class="hou">列表</a>]
+                                                    </td>
+                                                    <td width="10%" align="center">
+                                                        屏蔽
+                                                    </td>
+                                                    <td width="10%" align="center">
+                                                        操作
+                                                    </td>
+                                                    <td width="60%" align="center">
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                                    <?php for($i=0;$i<count($adminUsers);$i++){ ?>
+                                                        <tr>
+                                                            <td height="25" align="center">
+                                                                <?php if ($adminUsers[$i]->Auid != 1)
+                                                                   { ?><input class="checked" type="checkbox" id="checked" name="checked[]" value="<?=$adminUsers[$i]->Auid ?>"><?php } ?>
+                                                            </td>
+                                                            <td>
+                                                                &nbsp;<?=$adminUsers[$i]->Auser ?>
+                                                            </td>
+                                                            <td align="center">
+                                                                <?=$adminUsers[$i]->Ltitle?>
+                                                            </td>
+                                                            <td align="center">
+                                                                <?php if ($adminUsers[$i]->Auid != 1)
+                                                                   { ?><input name="alive" type="checkbox" id="alive" value="<?=$adminUsers[$i]->Auid ?>" onclick="window.location='<?=$this->config_lib->admin_dir?>/adminUsers/Alive?<?=$this->functions_lib->transParameters('id')?>&id=<?=$adminUsers[$i]->Auid ?>'"
+                                                                       <?php if($adminUsers[$i]->Alive=="0"){ ?> checked="checked" <?php } ?> /><?php }
+                                                                   else
+                                                                   { ?>&nbsp;<?php } ?>
+                                                            </td>
+                                                            <td align="center">
+                                                                <input type="button" value="查看" class="button" onclick="parent.iframeBg('<?=$this->config_lib->admin_dir?>/adminUsers/Modify?id=<?=$adminUsers[$i]->Auid?>');return false;" />
+                                                            </td>
+                                                            <td>
+                                                                &nbsp;
+                                                            </td>
+                                                        </tr>
+                                                    <?php }?>
+                                                    <?php if($page_str!="" or true){ ?>
+                                                    <tr class="page_tr" height="30">
+                                                        <td align="right" colspan="5">
+                                                            <?=$page_str?>
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <?php } ?>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="stay_bottom_split">
+    </div>
+    <div id="stay_bottom">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td height="30" colspan="6" align="center">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>
+                                <input id="add" type="button" value="添加" onclick="parent.iframeBg('<?=$this->config_lib->admin_dir?>/adminUsers/Add');return false;"
+                                    class="button" />
+                                <?php if (count($adminUsers) > 1) { ?>
+                                &nbsp;&nbsp;
+                                 <input id="delete" type="button" value="删除" class="button" onclick="del(document.getElementById('form1'));return false;" /> &nbsp;&nbsp;
+                                <?php } ?>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>
